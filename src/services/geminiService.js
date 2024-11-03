@@ -12,17 +12,18 @@ class GeminiService {
     try {
       const prompt = `Generate a single, short quote related to the topic: ${topic}. 
                       The quote should be inspiring, humorous, or thought-provoking, with no hashtags, explanations, or extra content.`;
-  
+
       const result = await this.model.generateContent(prompt);
-      const text = result?.response?.text || result?.text || ''; 
-      
+      const response = await result.response;
+      const text = response.text();
+
       return text;
     } catch (error) {
-      console.error('Error in generateText:', error.originalError || error);  
+      console.error('Error in generateText:', error.originalError || error);
       throw new Error('Failed to generate text');
     }
   }
-  
+
 }
 
 module.exports = new GeminiService();
