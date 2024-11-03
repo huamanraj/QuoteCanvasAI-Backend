@@ -6,6 +6,12 @@ const postRoutes = require('./routes/postRoutes');
 
 const app = express();
 
+
+app.get('/', (req, res) => {
+  res.send("Hello!!");
+});
+
+
 // Middleware
 app.use(helmet());
 app.use(morgan('dev'));

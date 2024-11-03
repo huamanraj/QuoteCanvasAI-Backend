@@ -1,7 +1,6 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const config = require('../config/config');
-const cors = require('cors');
-app.use(cors());
+
 
 class GeminiService {
   constructor() {
